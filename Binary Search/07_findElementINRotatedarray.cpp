@@ -3,27 +3,6 @@ using namespace std;
 class Solution
 {
 public:
-    int binarySearch(int l, int h, vector<int> arr, int target)
-    {
-
-        while (l <= h)
-        {
-            int mid = (l + h) / 2;
-            if (arr[mid] == target)
-            {
-                return mid;
-            }
-            else if (target > arr[mid])
-            {
-                l = mid + 1;
-            }
-            else
-            {
-                h = mid - 1;
-            }
-        }
-        return -1;
-    }
     int search(vector<int> &arr, int target)
     {
 
