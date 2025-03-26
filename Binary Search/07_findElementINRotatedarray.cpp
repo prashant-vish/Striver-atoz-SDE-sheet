@@ -53,7 +53,7 @@ public:
             {
                 if (target >= arr[mid] && target <= arr[h])
                 {
-                    l = mid - 1;
+                    l = mid + 1;
                 }
                 else
                 {
