@@ -81,7 +81,7 @@ int findPages(vector<int> &arr, int n, int m)
         low = max(arr[i], low);
         high += arr[i];
     }
-   
+
     while (low <= high)
     {
         int mid = (low + high) / 2;
