@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// time complexity -O(n*n*26)
+// space complexity - O(26)
 class Solution
 {
 public:
