@@ -23,7 +23,7 @@ public:
 };
 
 // brute force
-// time complexity  O(n)
+// time complexity  O(2*n)
 // space complexity O(1)
 Node *sortList(Node *head)
 {
@@ -44,23 +44,69 @@ Node *sortList(Node *head)
         temp = temp->next;
     }
     temp = head;
-    while (count0)
+    while (temp)
     {
-        temp->data = 0;
-        count0--;
-        temp = temp->next;
-    }
-    while (count1)
-    {
-        temp->data = 1;
-        count1--;
-        temp = temp->next;
-    }
-    while (count2)
-    {
-        temp->data = 2;
-        count2--;
+        if (count0)
+        {
+            temp->data = 0;
+            count0--;
+        }
+        else if (count1)
+        {
+            temp->data = 1;
+            count1--;
+        }
+        else
+        {
+            temp->data = 2;
+            count2--;
+        }
         temp = temp->next;
     }
     return head;
+}
+
+
+// optimal Solution 
+// time complexity - O(n)
+// space complexity - )(1)
+
+Node* sortList(Node *head){
+    // Write your code here.
+    if(!head || !head->next) return head;
+
+    Node * temp=head;
+    Node * zeroHead=new Node(-1);
+    Node * oneHead=new Node(-1);
+    Node * twoHead=new Node(-1);
+    Node *zero=zeroHead;
+    Node *one=oneHead;
+    Node *two=twoHead;
+
+    while(temp){
+        if(temp->data==0){
+            zero->next=temp;
+            zero=temp;
+        }
+        else if(temp->data==1){
+            one->next=temp;
+            one=temp;
+        }
+        else{
+            two->next=temp;
+            two=temp;
+        }
+        temp=temp->next;
+    }
+
+    zero->next=(oneHead->next)?oneHead->next:twoHead->next;
+    one->next=twoHead->next;
+    two->next=NULL;
+
+    Node * newHead=zeroHead->next;
+    delete oneHead;
+    delete zeroHead;
+    delete twoHead;
+    return newHead;
+    
 }
