@@ -41,7 +41,6 @@ public:
     }
 };
 
-
 // Optimal solution
 // time complexity = O(n);
 //  space complexity -O(1)
@@ -67,5 +66,27 @@ public:
             }
         }
         return prev;
+    }
+};
+
+// recursive solution
+// time compleixity - O(n)
+// space complexity - O(n) stack space
+
+class Solution
+{
+public:
+    ListNode *reverseList(ListNode *head)
+    {
+        if (!head || !head->next)
+        {
+            return head;
+        }
+
+        ListNode *last = reverseList(head->next);
+        ListNode *front = head->next;
+        front->next = head;
+        head->next = NULL;
+        return last;
     }
 };
