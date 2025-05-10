@@ -30,11 +30,11 @@ public:
 Node *removeDuplicates(Node *head)
 {
     Node *temp = head;
-    while (temp)
+    while (temp && temp->next)
     {
-        Node *nextNode = temp;
 
-        while (nextNode != NULL &&temp->data = nextNode->data)
+        Node *nextNode = temp->next;
+        while (nextNode && temp->data == nextNode->data)
         {
             Node *duplicate = nextNode;
             nextNode = nextNode->next;
@@ -43,6 +43,7 @@ Node *removeDuplicates(Node *head)
         temp->next = nextNode;
         if (nextNode != NULL)
             nextNode->prev = temp;
+
         temp = temp->next;
     }
 
