@@ -8,6 +8,11 @@ struct ListNode
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+
+// Brute Force / Optimal Approach
+// Time complexity - O(n)
+// space complexity - O(1)
+
 class Solution
 {
 public:
