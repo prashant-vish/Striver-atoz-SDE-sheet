@@ -3,13 +3,11 @@ using namespace std;
 
 void insertAtBottom(stack<int> &s, int x)
 {
-
     if (s.size() == 0)
     {
         s.push(x);
         return;
     }
-
     int value = s.top();
     s.pop();
     insertAtBottom(s, x);
@@ -18,7 +16,6 @@ void insertAtBottom(stack<int> &s, int x)
 
 void reverseStack(stack<int> &stack)
 {
-
     if (stack.empty())
     {
         return;
