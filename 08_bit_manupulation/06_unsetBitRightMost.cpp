@@ -1,18 +1,25 @@
-class Solution {
-  public:
-    int setBit(int n) {
+class Solution
+{
+public:
+    // Time complexity O(log(2))
+    // Space Complexity O(1)
+    int setBit(int n)
+    {
         // Write Your Code here
-        int t=n;
-        int i=0;
-        int mini=0;
-        while(n){
+        int t = n;
+        int i = 0;
+        int mini = 0;
+
+        while (n)
+        {
             i++;
-            if(!mini && n%2==0){
-                mini=i;
+            if (!mini && n % 2 == 0)
+            {
+                mini = i;
             }
-            n=n/2;
+            n = n / 2;
         }
-        
-        return (!mini)?t|(1<<(i)):t|(1<<(mini-1));
+
+        return (!mini) ? t | (1 << (i)) : t | (1 << (mini - 1));
     }
 };
