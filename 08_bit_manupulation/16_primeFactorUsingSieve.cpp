@@ -8,9 +8,8 @@ using namespace std;
 class Solution
 {
 public:
-    void sieve()
-    {
-        ;
+    void sieve(int n)
+    {;
     }
 
     bool isPrime(int n)
@@ -42,6 +41,43 @@ public:
                 {
                     ans.push_back(i);
                     n = n / i;
+                }
+            }
+        }
+        return ans;
+    }
+};
+
+// time complexity - O(n*log(logn))
+// space complexity - O(n)
+
+class Solution {
+  public:
+    void sieve() {
+     
+        ;
+        
+    }
+    
+  
+    vector<int> findPrimeFactors(int n) {
+        vector<int> ans;
+        int arr[n+1];
+        for(int i=0;i<=n;i++){
+            arr[i]=1;
+        }
+        for(int i=2;i*i<=n;i++){
+            for(int j=i*i;j<=n;j+=i){
+                if(!arr[j]){
+                    arr[j]=0;
+                }
+            }
+        }
+        for(int i=2;i<=n;i++){
+            if(arr[i]){
+                while(n%i==0){
+                    ans.push_back(i);
+                    n=n/i;
                 }
             }
         }
